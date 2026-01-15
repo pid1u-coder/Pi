@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Social</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#1e1e2f,#2b2b45);
+  font-family: "Segoe UI", sans-serif;
+  transition: background 0.6s ease;
+  color:#fff;
+}
+
+/* ASCII atas */
+.ascii{
+  position:fixed;
+  top:20px;
+  text-align:center;
+  font-family: monospace;
+  font-size:12px;
+  white-space:pre;
+  opacity:0.85;
+}
+
+/* Kad */
+.card{
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border-radius:20px;
+  padding:30px 25px 40px;
+  width:320px;
+  text-align:center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card h1{
+  font-size:24px;
+  margin-bottom:6px;
+}
+
+.card p{
+  font-size:14px;
+  opacity:0.8;
+  margin-bottom:28px;
+}
+
+/* Sosial */
+.social{
+  display:flex;
+  justify-content:space-around;
+  margin-bottom:30px;
+}
+
+/* Item ikon + teks */
+.social-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+
+/* Ikon */
+.social-item a{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  color:#fff;
+  text-decoration:none;
+  transition:0.35s;
+}
+
+/* Text bawah ikon */
+.social-item span{
+  font-size:12px;
+  opacity:0.85;
+  letter-spacing:0.5px;
+}
+
+/* YouTube */
+.youtube{
+  background:#ff0000;
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
+}
+.youtube:hover{
+  transform: translateY(-6px) scale(1.1);
+  box-shadow:0 0 30px rgba(255,0,0,0.9);
+}
+
+/* Instagram */
+.instagram{
+  background: radial-gradient(circle at 30% 107%,
+  #fdf497 0%, #fdf497 5%, #fd5949 45%,
+  #d6249f 60%, #285AEB 90%);
+  box-shadow:0 0 15px rgba(214,36,159,0.6);
+}
+.instagram:hover{
+  transform: translateY(-6px) scale(1.1);
+  box-shadow:0 0 30px rgba(214,36,159,0.9);
+}
+
+/* TikTok */
+.tiktok{
+  background:#000;
+  box-shadow:0 0 15px rgba(0,242,234,0.6);
+}
+.tiktok:hover{
+  transform: translateY(-6px) scale(1.1);
+  box-shadow:0 0 30px #00f2ea, 0 0 30px #ff0050;
+}
+
+/* Butang */
+.btn-color{
+  position:fixed;
+  bottom:45px;
+  padding:12px 22px;
+  border:none;
+  border-radius:30px;
+  font-size:15px;
+  cursor:pointer;
+  background:#fff;
+  color:#333;
+  transition:0.3s;
+}
+
+.btn-color:hover{
+  transform: scale(1.08);
+}
+
+/* Footer */
+.footer{
+  position:fixed;
+  bottom:15px;
+  font-size:13px;
+  opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ascii">
+╔═╦╗╔╦╗╔═╦═╦╦╦╦╗╔═╗
+║╚╣║║║╚╣╚╣╔╣╔╣║╚╣═╣
+╠╗║╚╝║║╠╗║╚╣║║║║║═╣
+╚═╩══╩═╩═╩═╩╝╚╩═╩═╝
+</div>
+
+<div class="card">
+  <h1>Follow saya</h1>
+  <p>Media sosial rasmi</p>
+
+  <div class="social">
+
+    <div class="social-item">
+      <a href="https://youtube.com/@pidu.the.real.channel?si=UFk9wlEK3ELJUfch" target="_blank" class="youtube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+      <span>YouTube</span>
+    </div>
+
+    <div class="social-item">
+      <a href="https://www.instagram.com/1pid244?igsh=N2Q2b3NlMTZ0OWZ1" target="_blank" class="instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <span>Instagram</span>
+    </div>
+
+    <div class="social-item">
+      <a href="https://www.tiktok.com" target="_blank" class="tiktok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+      <span>TikTok</span>
+    </div>
+
+  </div>
+</div>
+
+<button class="btn-color" onclick="tukarWarna()">🎨 Tukar Warna</button>
+<div class="footer">by ~pid~</div>
+
+<script>
+const warna=[
+  "linear-gradient(135deg,#1e1e2f,#2b2b45)",
+  "linear-gradient(135deg,#0f2027,#203a43,#2c5364)",
+  "linear-gradient(135deg,#42275a,#734b6d)",
+  "linear-gradient(135deg,#000428,#004e92)",
+  "linear-gradient(135deg,#232526,#414345)"
+];
+let i=0;
+function tukarWarna(){
+  i=(i+1)%warna.length;
+  document.body.style.background=warna[i];
+}
+</script>
+
+</body>
+</html>
